@@ -1,4 +1,11 @@
-public class LinkedList {
+interface a{
+    void print();
+}
+interface b{
+    void print();
+    void display();
+}
+public class LinkedList implements a ,b {
     Node head;
 
     void insert(int val){
@@ -15,7 +22,7 @@ public class LinkedList {
 
     }
 
-    void display(){
+    public void display(){
         if(head==null){
             System.out.println("List is empty");
         }
@@ -26,5 +33,11 @@ public class LinkedList {
             System.out.println(temp.val);
             temp=temp.next;
            }
+    }
+
+    @Override
+    public void print() {
+        // TODO Auto-generated method stub
+        
     }
 }
