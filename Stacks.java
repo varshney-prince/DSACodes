@@ -17,11 +17,53 @@ public class Stacks {
 	}
 	
 }
+
+ static void nge(int[] ht) {
+	int[] nge=new int[ht.length];
+	Stack<Integer> st = new Stack<>();
+    st.push(0);
+	for(int i=1;i<ht.length;i++){
+		while(!st.isEmpty() && ht[st.peek()]<ht[i]){
+			System.out.println("nge of "+ ht[st.peek()] +" is "+ht[i]); 
+			nge[st.pop()]=ht[i];
+
+		}
+		st.push(i);
+	}
+
+	while(!st.isEmpty()){
+		System.out.println("nge of "+ ht[st.pop()] +" is -1"); 
+	}
+}
+
+static void nse(int[] ht) {
+	int[] nge=new int[ht.length];
+	Stack<Integer> st = new Stack<>();
+    st.push(0);
+	for(int i=1;i<ht.length;i++){
+		while(!st.isEmpty() && ht[st.peek()]>ht[i]){
+			System.out.println("nge of "+ ht[st.peek()] +" is "+ht[i]); 
+			nge[st.pop()]=ht[i];
+
+		}
+		st.push(i);
+	}
+
+	while(!st.isEmpty()){
+		System.out.println("nge of "+ ht[st.pop()] +" is -1"); 
+	}
+}
     
 	public static void main(String[] args) {
 		String str = "IDIIIIDD";
 		formMinNum(str);
+
+		//Next greater element
+		int[] ht = { 100, 80, 60, 70, 60, 75, 85 };
+		nse(ht);
        
 		}
+
+	
     }
     
