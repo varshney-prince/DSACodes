@@ -5,7 +5,7 @@ interface b{
     void print();
     void display();
 }
-public class LinkedList implements a ,b {
+public class LinkedList  {
     Node head;
 
     void insert(int val){
@@ -35,9 +35,5 @@ public class LinkedList implements a ,b {
            }
     }
 
-    @Override
-    public void print() {
-        // TODO Auto-generated method stub
-        
-    }
+   
 }
