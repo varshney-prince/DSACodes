@@ -24,6 +24,19 @@ public class sort {
         
         System.out.println(Arrays.toString(arr));
     }
+
+    static void bubble(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+             for(int j=1;j<arr.length-i;j++){
+                if(arr[j]<arr[j-1]){
+                    swap(arr, j, j-1);
+                }
+
+             }
+            }
+        
+        System.out.println("bubble sort -> "+Arrays.toString(arr));
+    }
    
     private static int find(int[] arr, int i, int last) {
         int Max=i;
