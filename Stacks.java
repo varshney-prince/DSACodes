@@ -1,4 +1,7 @@
 import java.util.*;
+
+import BasicDataStructure.List.LinkedListADT;
+import sorting.sort;
 public class Stacks {
 	static void formMinNum(String str){
 		
@@ -57,10 +60,15 @@ static void nse(int[] ht) {
 	public static void main(String[] args) {
 		String str = "IDIIIIDD";
 		//formMinNum(str);
+        LinkedListADT list = new LinkedListADT();
+		list.insert(1);
+		list.insert(2);
+		list.insert(3);
 
+		list.print();
 		
 		int[] ht = { 100, 80, 60, 70, 60, 75, 85 };
-		sort.bubble(ht);
+		//sort.bubble(ht);
 		//pge(ht);
 		//pse(ht);
 		//Next greater element
