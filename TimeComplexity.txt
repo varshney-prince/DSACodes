@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 time complexity
+=======
+Sigma Omega theta
+>>>>>>> a4beaa8 (selection sort created)

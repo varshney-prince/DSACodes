@@ -60,7 +60,7 @@ static void nse(int[] ht) {
 
 		
 		int[] ht = { 100, 80, 60, 70, 60, 75, 85 };
-		sort.insertion(ht);
+		sort.selection(ht);
 		//pge(ht);
 		//pse(ht);
 		//Next greater element
