@@ -62,8 +62,8 @@ static void nse(int[] ht) {
         
 		
 		int[] ht = { 100, 80, 60, 70, 60, 75, 85 };
-		sort.mergeSort(ht, 0, ht.length-1);
-		System.out.println("bubble sort -> "+Arrays.toString(ht));
+		sort.QuickSort(ht, 0, ht.length-1);
+		System.out.println("Quick sort -> "+Arrays.toString(ht));
 		//sort.bubble(ht);
 		//pge(ht);
 		//pse(ht);
