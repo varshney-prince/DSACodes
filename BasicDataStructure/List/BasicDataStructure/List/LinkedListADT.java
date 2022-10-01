@@ -37,6 +37,11 @@ package BasicDataStructure.List;public class LinkedListADT  {
         size++;
     }
 
+    public boolean isEmpty(){
+        return head==null;
+    }
+    
+
     public void print(){
         if(head==null){
             System.out.println("List is Empty");
