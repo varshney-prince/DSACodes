@@ -1,6 +1,6 @@
 import java.util.*;
 
-import sorting.sort;
+import Algorithms.searching.search;;
 public class Stacks {
 	static void formMinNum(String str){
 		
@@ -57,13 +57,14 @@ static void nse(int[] ht) {
 }
     
 	public static void main(String[] args) {
-		String str = "IDIIIIDD";
+		//String str = "IDIIIIDD";
 		//formMinNum(str);
         
 		
 		int[] ht = { 100, 80, 60, 70, 60, 75, 85 };
-		sort.QuickSort(ht, 0, ht.length-1);
-		System.out.println("Quick sort -> "+Arrays.toString(ht));
+		//sort.QuickSort(ht, 0, ht.length-1);
+		int st=search.binarySearch(ht,85);
+		System.out.println(st);
 		//sort.bubble(ht);
 		//pge(ht);
 		//pse(ht);
