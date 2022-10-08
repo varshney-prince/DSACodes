@@ -8,5 +8,12 @@ public class Recursion {
         }
         return n%10+sumOfDigit(n/10);
     }
+
+    public static int productOfDigit(int n){
+        if(n==0){
+            return 1;
+        }
+        return n%10*productOfDigit(n/10);
+    }
     
 }
