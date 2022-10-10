@@ -10,8 +10,7 @@ public class Main {
         //list.delete(1);
         //list.print();
         int[] ar = {1,2,3,4,4,5,6};
-        ArrayList<Integer> list = new ArrayList<>();
-         System.out.println(Recursion.search(4, 0, ar, list));       
+         System.out.println(Recursion.search1(4, 0, ar));       
        
     }
     

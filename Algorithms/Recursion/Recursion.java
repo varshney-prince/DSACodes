@@ -53,5 +53,21 @@ public class Recursion {
         return search(target, index+1, arr, list);
 
     }
+
+    public static ArrayList<Integer> search1(int target ,int index,int[] arr){
+        ArrayList<Integer> list = new ArrayList<>();
+        if(index==arr.length){
+            return list;
+        }
+
+        if(arr[index]==target){
+            list.add(index);
+        }
+           
+         
+        list.addAll(search(target, index+1, arr, list));
+        return list;
+
+    }
     
 }
