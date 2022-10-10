@@ -1,5 +1,7 @@
 package Algorithms.Recursion;
 
+import java.util.ArrayList;
+
 public class Recursion {
 
     public static int sumOfDigit(int n){
@@ -36,6 +38,20 @@ public class Recursion {
         arr[i]=arr[minIndex];
         arr[minIndex]=temp;
         sortArray(arr, i+1);
+    }
+
+    public static ArrayList<Integer> search(int target ,int index,int[] arr,ArrayList<Integer> list){
+        if(index==arr.length){
+            return list;
+        }
+
+        if(arr[index]==target){
+            list.add(index);
+        }
+           
+         
+        return search(target, index+1, arr, list);
+
     }
     
 }

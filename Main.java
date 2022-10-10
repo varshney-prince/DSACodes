@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import Algorithms.Recursion.Recursion;
 import BasicDataStructure.List.LinkedListADT;
 
@@ -7,7 +9,9 @@ public class Main {
        // list.addLast(1);
         //list.delete(1);
         //list.print();
-         System.out.println(Recursion.sumOfDigit(123));       
+        int[] ar = {1,2,3,4,4,5,6};
+        ArrayList<Integer> list = new ArrayList<>();
+         System.out.println(Recursion.search(4, 0, ar, list));       
        
     }
     
