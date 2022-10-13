@@ -24,20 +24,47 @@ public class Tree {
     }
     
 
-    public void display(TreeNode root){
+    private void displayPreOrder(TreeNode root){
         if(root==null){
             return;
         }
 
         System.out.println(root.val);
-        display(root.left);
-        display(root.right);
+        displayPreOrder(root.left);
+        displayPreOrder(root.right);
 
 
     }
 
+    private void displayInorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+
+       
+        displayInorder(root.left);
+        System.out.println(root.val);
+        displayInorder(root.right);
+
+
+    }
+
+    private void displayPostorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+
+       
+        displayPostorder(root.left);
+        System.out.println(root.val);
+        displayPostorder(root.right);
+
+
+    }
+
+
     public void display(){
-        display(root);
+        displayInorder(root);
     }
 
     public int size(){
