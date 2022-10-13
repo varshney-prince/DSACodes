@@ -1,4 +1,4 @@
-package BasicDataStructure.stack;
+package LinearDataStructure.stack;
 
 public class StackADT {
     static final int  MAX=1000;

@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 import Algorithms.Recursion.Recursion;
-import BasicDataStructure.List.LinkedListADT;
+import LinearDataStructure.List.LinkedListADT;
+import NonLinearDataStructure.Trees.Tree;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,8 +10,9 @@ public class Main {
        // list.addLast(1);
         //list.delete(1);
         //list.print();
-        int[] ar = {1,2,3,4,4,5,6};
-         System.out.println(Recursion.search1(4, 0, ar));       
+         Tree t = new Tree(); 
+         t.createTree();
+         t.display();   
        
     }
     

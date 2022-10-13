@@ -1,4 +1,4 @@
-package BasicDataStructure.List;
+package LinearDataStructure.List;
 class SinglyNode{
     int val;
     SinglyNode next;

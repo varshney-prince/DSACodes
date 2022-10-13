@@ -1,4 +1,4 @@
-package BasicDataStructure.Queue;
+package LinearDataStructure.Queue;
 
 public class QueueADT {
 

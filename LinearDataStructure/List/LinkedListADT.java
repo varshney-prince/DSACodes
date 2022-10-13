@@ -1,4 +1,4 @@
-package BasicDataStructure.List;public class LinkedListADT  {
+package LinearDataStructure.List;public class LinkedListADT  {
 
   
     SinglyNode head;
