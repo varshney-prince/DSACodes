@@ -117,6 +117,10 @@ public class Tree {
         int toalHeight=Math.max(leftHeight, rightHeight)+1;
         return toalHeight;
     }
+    
+    public int add(int a ,int b){
+        return a+b;
+    }
 
     public Tree(){
         this.root = new TreeNode();
