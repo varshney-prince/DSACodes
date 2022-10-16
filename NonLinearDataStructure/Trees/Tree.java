@@ -118,8 +118,24 @@ public class Tree {
         return toalHeight;
     }
     
-    public int add(int a ,int b){
-        return a+b;
+    public void levelOrderTraversal(){
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+ 
+            
+            TreeNode tempNode = queue.poll();
+            System.out.print(tempNode.val + " ");
+ 
+            if (tempNode.left != null) {
+                queue.add(tempNode.left);
+            }
+ 
+            if (tempNode.right != null) {
+                queue.add(tempNode.right);
+            }
+        }
     }
 
     public Tree(){
