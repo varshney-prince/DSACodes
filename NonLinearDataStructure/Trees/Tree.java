@@ -138,6 +138,92 @@ public class Tree {
         }
     }
 
+     /*
+     * Algorithm: delete node in binary tree
+     * 
+     * Starting at the root, find the deepest and rightmost node in the binary tree
+     * and the node which we want to delete.
+     * Replace the deepest rightmost node’s data with the node to be deleted.
+     * Then delete the deepest rightmost node.
+     */
+     public void deleteDeepest(TreeNode root,
+             TreeNode delNode) {
+         Queue<TreeNode> q = new LinkedList<TreeNode>();
+         q.add(root);
+
+         TreeNode temp = null;
+
+         // Do level order traversal until last node
+         while (!q.isEmpty()) {
+             temp = q.peek();
+             q.remove();
+
+             if (temp == delNode) {
+                 temp = null;
+                 return;
+
+             }
+             if (temp.right != null) {
+                 if (temp.right == delNode) {
+                     temp.right = null;
+                     return;
+                 } else
+                     q.add(temp.right);
+             }
+
+             if (temp.left != null) {
+                 if (temp.left == delNode) {
+                     temp.left = null;
+                     return;
+                 } else
+                     q.add(temp.left);
+             }
+         }
+     }
+ 
+// Function to delete given element
+// in binary tree
+public void delete(TreeNode root, int key) {
+    if (root == null)
+        return;
+
+    if (root.left == null &&
+            root.right == null) {
+        if (root.val == key) {
+            root = null;
+            return;
+        } else
+            return;
+    }
+
+    Queue<TreeNode> q = new LinkedList<TreeNode>();
+    q.add(root);
+    TreeNode temp = null, keyNode = null;
+
+    // Do level order traversal until
+    // we find key and last node.
+    while (!q.isEmpty()) {
+        temp = q.peek();
+        q.remove();
+
+        if (temp.val == key)
+            keyNode = temp;
+
+        if (temp.left != null)
+            q.add(temp.left);
+
+        if (temp.right != null)
+            q.add(temp.right);
+    }
+
+    if (keyNode != null) {
+        int x = temp.val;
+        deleteDeepest(root, temp);
+        keyNode.val = x;
+    }
+}
+ 
+
     public Tree(){
         this.root = new TreeNode();
     }
