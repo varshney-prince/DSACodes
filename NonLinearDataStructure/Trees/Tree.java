@@ -3,6 +3,16 @@ package NonLinearDataStructure.Trees;
 import java.util.*;
 
 public class Tree {
+
+    static class Info{
+        int diameter;
+        int height;
+        public Info(int dia ,int ht){
+            this.diameter=dia;
+            this.height=ht;
+        }
+    }
+
     TreeNode root;
 
     public void createTree(){
@@ -222,7 +232,107 @@ public void delete(TreeNode root, int key) {
         keyNode.val = x;
     }
 }
+
+ public Info diameter(TreeNode root){
+    if(root==null){
+        return new Info(0, 0);
+    }
+
+    Info leftInfo=diameter(root.left);
+    Info righInfo=diameter(root.right);
+    int selfDia=leftInfo.height+righInfo.height+1;
+
+    int dia=Math.max(Math.max(leftInfo.diameter,righInfo.diameter),selfDia);
+    int ht = Math.max(leftInfo.height,righInfo.height)+1;
+
+    return new Info(dia, ht);
+
+ }
+
+ public boolean isSubTree(TreeNode root,TreeNode subRoot){
+
+    if(root == null){
+        return false;
+    }
+
+    if(root.val==subRoot.val){
+        if(isIdentical(root,subRoot)){
+            return true;
+        }
+    }
+
+    return isSubTree(root.left,subRoot) || isSubTree(root.right, subRoot);
+ }
  
+
+    private boolean isIdentical(TreeNode root2, TreeNode subRoot) {
+        if(root2==null && subRoot==null){
+            return true;
+        }
+        else if(root2==null || subRoot==null || root2.val!=subRoot.val){
+            return false;
+        }
+
+        if(!isIdentical(root2.left, subRoot.left)){
+            return false;
+        }
+
+        if(!isIdentical(root2.right, subRoot.right)){
+            return false;
+        }
+        return true;
+    }
+
+    class Top{
+        TreeNode node;
+        int hd;
+        public Top(TreeNode node ,int hd){
+            this.node=node;
+            this.hd=hd;
+        }
+    }
+
+    public void topView(TreeNode root){
+
+        Queue<Top> q =new LinkedList();
+
+        HashMap<Integer , TreeNode> map = new HashMap<>();
+
+        int min=0 , max=0;
+        q.add(new Top(root,0));
+
+        while(!q.isEmpty()){
+            Top curr =q.remove();
+            if(curr==null){
+                if(q.isEmpty()){
+                    break;
+                }
+                else{
+                    q.add(null);
+                }
+            }
+
+            if(!map.containsKey(curr.hd)){
+                map.put(curr.hd, curr.node);
+            }
+
+            if(curr.node.left!=null){
+                q.add(new Top(curr.node.left, curr.hd-1));
+                min=Math.min(min,curr.hd-1);
+            }
+
+            if(curr.node.right!=null){
+                q.add(new Top(curr.node.right, curr.hd+1));
+                max=Math.max(max,curr.hd+1);
+            }
+        }
+
+        for(int i=min ;i<=max;i++){
+            System.out.print(map.get(i).val+" ");
+        }
+
+        System.out.println();        
+    }
 
     public Tree(){
         this.root = new TreeNode();
