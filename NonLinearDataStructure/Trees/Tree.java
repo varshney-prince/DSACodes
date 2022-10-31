@@ -334,6 +334,127 @@ public void delete(TreeNode root, int key) {
         System.out.println();        
     }
 
+public static void Klevel(TreeNode root , int level ,int k){
+    if(root==null){
+        return;
+    }
+
+    if(level==k){
+        System.out.print(root.val + " ");
+        return;
+    }
+
+    Klevel(root.left, level+1, k);
+    Klevel(root.right, level+1, k);
+}
+
+public TreeNode lca(TreeNode lca ,int n1,int n2){
+    ArrayList<TreeNode> path1 = new ArrayList<>();
+    ArrayList<TreeNode> path2 = new ArrayList<>();
+
+    getPath(root,n1,path1);
+    getPath(root,n2,path2);
+
+    int i=0;
+
+    for(;i<path1.size() && i<path2.size();i++){
+        if(path1.get(i)!=path2.get(i)){
+            break;
+        }
+    }
+
+    TreeNode lca1=path1.get(i-1);
+    return lca1;
+
+}
+
+    public boolean getPath(TreeNode root2, int n1, ArrayList<TreeNode> path1) {
+        if(root==null){
+            return false;
+        }
+
+        path1.add(root2);
+
+        boolean foundLeft=getPath(root2.left, n1, path1);
+        boolean foundRight=getPath(root2.right, n1, path1);
+
+        if(foundLeft || foundRight){
+            return true;
+        }
+        path1.remove(path1.size()-1);
+        return false;
+}
+
+public int minDist(TreeNode root ,int n1 ,int n2){
+    TreeNode lca = lca(root, n1, n2);
+    int dis1=lcaDis(lca,n1);
+    int dis2=lcaDis(lca,n2);
+
+    return dis1+dis2;
+}
+
+    private int lcaDis(TreeNode lca, int n1) {
+        if(root==null){
+            return -1;
+        }
+
+        if(root.val==n1){
+            return 0;
+        }
+
+        int leftDis=lcaDis(lca.left, n1);
+        int rightDis=lcaDis(lca.right, n1);
+
+        if(leftDis==-1 && rightDis==-1){
+            return -1;
+        }
+        else if(leftDis==-1){
+            return rightDis+1;
+        }
+        else{
+            return leftDis+1;
+        }
+
+    }
+
+    public int KAncestor(TreeNode root , int n ,int k){
+        if(root==null){
+            return -1;
+        }
+
+        if(root.val==n){
+            return 0;
+        }
+
+        int leftDis=KAncestor(root.left, n, k);
+        int rightDis=KAncestor(root.right, n, k);
+
+        if(leftDis==-1 && rightDis==-1){
+            return -1;
+        }
+
+        int max=Math.max(leftDis,rightDis);
+
+        if(max+1==k){
+            System.out.println(root.val);
+        }
+
+        return max+1;
+    }
+
+    public int sumTree(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+
+        int leftChild=sumTree(root.left);
+        int rightChild=sumTree(root.right);
+
+        int data=root.val;
+        root.val=leftChild+rightChild+root.left.val+root.right.val;
+        return data;
+    }
+
     public Tree(){
         this.root = new TreeNode();
     }
