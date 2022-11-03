@@ -177,4 +177,38 @@ public class BST {
         System.out.print(root.data+" ");
         inorder(root.right);
     }
+
+    public Node createBST(ArrayList<Integer> ar ,int start , int end){
+        if(start>end){
+            return null;
+        }
+
+        int mid=(start+end)/2;
+        Node root = new Node(ar.get(mid));
+        root.right=createBST(ar, mid+1, end);
+        root.left=createBST(ar, start, mid-1);
+        return root;
+
+    }
+
+    public Node balanceBST(Node root){
+        // inorder seq O(n)
+        ArrayList<Integer> inorder = new ArrayList<>();
+        getInorder(root,inorder);
+
+        // sorted order - balanced BST - O(n)
+        root=createBST(inorder, 0, inorder.size()-1);
+        return root;
+
+    }
+
+    private void getInorder(Node root, ArrayList<Integer> inorder) {
+        if(root==null){
+            return ;
+        }
+
+        getInorder(root.left,inorder);
+        inorder.add(root.data);
+        getInorder(root.right,inorder);
+    }
 }
