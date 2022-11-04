@@ -1,4 +1,4 @@
-package NonLinearDataStructure.Trees.EasyQuestions;
+package EasyQuestions;
 
 public class Easy {
     
