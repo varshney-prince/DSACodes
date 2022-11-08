@@ -14,8 +14,17 @@ public class Graph {
     }
 
     public static void bfs(ArrayList<Edge>[] graph){
-        Queue<Integer> q = new LinkedList<>();
         boolean vis[] = new boolean[graph.length];
+        for(int i=0;i<graph.length;i++){
+            if(!vis[i]){
+                bfsUtil(graph, vis);
+            }
+        }
+    }
+
+    public static void bfsUtil(ArrayList<Edge>[] graph,boolean[] vis){
+        Queue<Integer> q = new LinkedList<>();
+        
         q.add(0);
 
         while(!q.isEmpty()){
@@ -32,16 +41,56 @@ public class Graph {
 
     }
 
-    public static void dfs(ArrayList<Edge>[] graph , int curr, boolean[] vis){
+    public static void dfs(ArrayList<Edge>[] graph ){
+        boolean vis[] = new boolean[graph.length];
+        for(int i=0;i<graph.length;i++){
+            if(!vis[i]){
+                bfsUtil(graph, vis);
+            }
+        }
+    }
+
+    public static void dfsUtil(ArrayList<Edge>[] graph , int curr, boolean[] vis){
         System.out.print(curr+" ");
         vis[curr]=true;
 
         for(int i=0;i<graph[curr].size();i++){
             Edge e =graph[curr].get(i);
             if(!vis[e.des]){
-                dfs(graph,e.des,vis);
+                dfsUtil(graph,e.des,vis);
             }
         }
+    }
+        
+    public static boolean detectCycle(ArrayList<Edge>[] graph){
+        boolean vis[] = new boolean[graph.length];
+        for(int i=0;i<graph.length;i++){
+            if(!vis[i]){
+                if(detectCycleUtil(graph, vis, i, -1)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+    public static boolean detectCycleUtil(ArrayList<Edge>[] graph , boolean[] vis,int curr,int parent ){
+
+        vis[curr]=true;
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e =graph[curr].get(i);
+            if(!vis[e.des] && detectCycleUtil(graph, vis, e.des, curr)){
+                return true;
+            }
+            else if(vis[e.des] && e.des!=parent){
+                return true;
+            }
+
+        }
+
+        return false;
+
     }
     
 }
