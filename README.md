@@ -2,7 +2,7 @@
 * [What is Data Structures ?](https://github.com/varshney-prince/DSACodes/wiki/Data-Structures)
 
 * [Complexity Analysis](https://github.com/varshney-prince/DSACodes/wiki/Complexities-in-Codes)
-   * Time Complexity
+   * [Time Complexity](https://github.com/varshney-prince/DSACodes/wiki/Time-Complexity)
    * Space Complexity
 ## Linear Data Structures 
 1. [Linked List](https://github.com/varshney-prince/DSACodes/wiki/Linked-List)
