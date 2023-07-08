@@ -10,7 +10,7 @@
 3. [Queue](https://github.com/varshney-prince/DSACodes/wiki/Queue)
 
 * Recursion
-* BackTracking
+* [BackTracking](https://github.com/varshney-prince/DSACodes/wiki/Backtracking)
 
 ## Non Linear Data Structure
 1. Trees
