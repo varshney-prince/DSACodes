@@ -7,7 +7,7 @@
 ## Linear Data Structures 
 1. [Linked List](https://github.com/varshney-prince/DSACodes/wiki/Linked-List)
 2. [Stack](https://github.com/varshney-prince/DSACodes/wiki/Stack)
-3. Queue
+3. [Queue](https://github.com/varshney-prince/DSACodes/wiki/Queue)
 
 * Recursion
 * BackTracking
