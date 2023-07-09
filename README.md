@@ -3,6 +3,7 @@
 
 * [Complexity Analysis](https://github.com/varshney-prince/DSACodes/wiki/Complexities-in-Codes)
    * [Time Complexity](https://github.com/varshney-prince/DSACodes/wiki/Time-Complexity)
+   * [Memories used in Programming]
    * Space Complexity
 ## Linear Data Structures 
 1. [Linked List](https://github.com/varshney-prince/DSACodes/wiki/Linked-List)
